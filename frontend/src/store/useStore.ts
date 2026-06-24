@@ -161,7 +161,7 @@ interface CareerPilotState {
   resetStore: () => void;
 }
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 export const useStore = create<CareerPilotState>((set) => ({
   activeResumeId: null,

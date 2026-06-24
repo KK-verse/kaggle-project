@@ -143,12 +143,14 @@ export default function Dashboard() {
 
   const handleDownloadOriginalPDF = () => {
     if (!resumeData) return;
-    window.open(`http://localhost:8000/api/resumes/download/${resumeData.id}`, '_blank');
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    window.open(`${baseUrl}/api/resumes/download/${resumeData.id}`, '_blank');
   };
 
   const handleDownloadOptimizedPDF = () => {
     if (!optimizedResume) return;
-    window.open(`http://localhost:8000${optimizedResume.pdf_url}`, '_blank');
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    window.open(`${baseUrl}${optimizedResume.pdf_url}`, '_blank');
   };
 
 
